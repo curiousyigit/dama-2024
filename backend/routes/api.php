@@ -13,4 +13,6 @@ Route::middleware(GuestApi::class)->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/auth/user', [\App\Http\Controllers\AuthController::class, 'showAuthenticatedUser']);
     Route::delete('/auth/tokens', [\App\Http\Controllers\AuthController::class, 'destroyTokens']);
+
+    Route::get('/users', [\App\Http\Controllers\UserController::class, 'index']);
 });
