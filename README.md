@@ -8,6 +8,8 @@
 - Built using Laravel 11
 - Uses following packages:
     - Laravel Sanctum (for authentication)
+- Use `docker build -t weight-app . && docker run -d --name weight-app -p 8000:8000 -v $(pwd):/var/www weight-app
+` to run test docker container
 ## Endpoints
 - POST `/api/auth/register` (must not be authenticated)
     - Description:
