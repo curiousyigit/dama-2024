@@ -15,4 +15,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/auth/tokens', [\App\Http\Controllers\AuthController::class, 'destroyTokens']);
 
     Route::get('/users', [\App\Http\Controllers\UserController::class, 'index']);
+
+    Route::apiResource('/weight-entries', \App\Http\Controllers\WeightEntryController::class);
 });
