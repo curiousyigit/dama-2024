@@ -54,6 +54,8 @@ class AuthController extends Controller
         $user->password = bcrypt($validated['password']);
         $user->save();
 
+        $user->refresh();
+
         return response()->json(['data' => $user]);
     }
 
