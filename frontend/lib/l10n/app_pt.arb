@@ -1,0 +1,17 @@
+{
+    "login": "Iniciar Sessão",
+    "register": "Registrar",
+    "about": "Sobre",
+    "studentName": "Nome de Aluno",
+    "studentNo": "Nº de Aluno",
+    "librariesUsed": "Bibliotecas Utilizadas",
+    "aboutText": "Esta aplicação foi desenvolvida como projeto final da unidade curricular de Desenvolvimento Avançado de Aplicações Móveis do Mestrado em Engenharia Informática (IoT) do Instituto Politécnico de Tomar no ano letivo 2023/2024",
+    "email": "Endereço Elétronico",
+    "password": "Palavra-passe",
+    "name": "Nome",
+    "pleaseFillField": "Por favor preencher este campo!",
+    "pleaseEnterValidEmail": "Por favor preencher com um endereço elétronico valido!",
+    "invalidEmailOrPassword": "Endereço Elétronico ou palavra-passe invalido!",
+    "requestFailed": "Um erro ocorreu! Falha na solicitação!",
+    "registerSuccessful": "Registrado com sucesso! Agora você pode fazer login..."
+}

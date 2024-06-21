@@ -1,0 +1,17 @@
+{
+    "login": "Login",
+    "register": "Register",
+    "about": "About",
+    "studentName": "Student Name",
+    "studentNo": "Student No.",
+    "librariesUsed": "Libraries Used",
+    "aboutText": "This application was developed as a final project for the curricular unit of Advanced Mobile Applications Development of the Masters of Engineering in Computer Engineering (IoT) at the Polytechnic Institute of Tomar in the academic year 2023/2024",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "pleaseFillField": "Please fill this field!",
+    "pleaseEnterValidEmail": "Please enter a valid email address!",
+    "invalidEmailOrPassword": "Invalid email or password!",
+    "requestFailed": "An error occurred! Request failed!",
+    "registerSuccessful": "Successfully registered! You can now login..."
+}
