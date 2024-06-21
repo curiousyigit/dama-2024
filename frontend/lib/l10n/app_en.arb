@@ -13,5 +13,9 @@
     "pleaseEnterValidEmail": "Please enter a valid email address!",
     "invalidEmailOrPassword": "Invalid email or password!",
     "requestFailed": "An error occurred! Request failed!",
-    "registerSuccessful": "Successfully registered! You can now login..."
+    "registerSuccessful": "Successfully registered! You can now login...",
+    "compass": "Compass",
+    "grantPermission": "Grant Permission",
+    "loadingLocation": "Loading Location...",
+    "logout": "Logout"
 }

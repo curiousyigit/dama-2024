@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -45,6 +46,9 @@ class AboutScreen extends StatelessWidget {
               const Text('- cupertino_icons', style: TextStyle(fontSize: 16)),
               const Text('- http', style: TextStyle(fontSize: 16)),
               const Text('- device_info_plus', style: TextStyle(fontSize: 16)),
+              const Text('- flutter_compass', style: TextStyle(fontSize: 16)),
+              const Text('- permission_handler', style: TextStyle(fontSize: 16)),
+              const Text('- geolocator', style: TextStyle(fontSize: 16)),
             ],
           ),
         ),

@@ -13,5 +13,9 @@
     "pleaseEnterValidEmail": "Por favor preencher com um endereço elétronico valido!",
     "invalidEmailOrPassword": "Endereço Elétronico ou palavra-passe invalido!",
     "requestFailed": "Um erro ocorreu! Falha na solicitação!",
-    "registerSuccessful": "Registrado com sucesso! Agora você pode fazer login..."
+    "registerSuccessful": "Registrado com sucesso! Agora você pode fazer login...",
+    "compass": "Bússola",
+    "grantPermission": "Dar Permissão",
+    "loadingLocation": "A carregar localização...",
+    "logout": "Fechar Sessão"
 }
