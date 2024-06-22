@@ -17,5 +17,11 @@
     "compass": "Bússola",
     "grantPermission": "Dar Permissão",
     "loadingLocation": "A carregar localização...",
-    "logout": "Fechar Sessão"
+    "logout": "Fechar Sessão",
+    "users": "Utilizadores",
+    "usersOnlyAdminNote": "Esta página só pode ser acessada por administradores!",
+    "admin": "Admin",
+    "user": "Utilizador",
+    "next": "Próximo",
+    "previous": "Anterior"
 }

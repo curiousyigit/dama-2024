@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 import 'package:weight_app/data/models/auth_user.dart';
+import 'package:weight_app/data/responses/users_response.dart';
 
 enum HttpMethod {
   get,
@@ -55,10 +56,11 @@ class WeightAppService {
 
   Future<AuthUser?> getAuthUser() async {
     var response =
-          await apiRequest(method: HttpMethod.get, endpoint: '/auth/user');
+        await apiRequest(method: HttpMethod.get, endpoint: '/auth/user');
 
     if (response.statusCode == 200) {
-      return AuthUser.fromJson(jsonDecode(const Utf8Decoder().convert(response.bodyBytes))['data']);
+      return AuthUser.fromJson(
+          jsonDecode(const Utf8Decoder().convert(response.bodyBytes))['data']);
     }
 
     return null;
@@ -89,7 +91,15 @@ class WeightAppService {
           'password_confirmation': password,
         });
 
-    return AuthUser.fromJson(jsonDecode(const Utf8Decoder().convert(response.bodyBytes))['data']);
+    return AuthUser.fromJson(
+        jsonDecode(const Utf8Decoder().convert(response.bodyBytes))['data']);
+  }
+
+  Future<UsersResponse> getUsers(int page) async {
+    var response =
+        await apiRequest(method: HttpMethod.get, endpoint: '/users?page=$page&per_page=10');
+    dynamic json = jsonDecode(const Utf8Decoder().convert(response.bodyBytes));
+    return UsersResponse.fromJson(json);
   }
 
   Future<http.Response> apiRequest(

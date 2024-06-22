@@ -17,5 +17,11 @@
     "compass": "Compass",
     "grantPermission": "Grant Permission",
     "loadingLocation": "Loading Location...",
-    "logout": "Logout"
+    "logout": "Logout",
+    "users": "Users",
+    "usersOnlyAdminNote": "This page can only be access by admins!",
+    "admin": "Admin",
+    "user": "User",
+    "next": "Next",
+    "previous": "Previous"
 }

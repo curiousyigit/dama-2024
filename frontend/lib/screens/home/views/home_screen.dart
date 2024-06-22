@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weight_app/blocs/auth_bloc/auth_bloc.dart';
 import 'package:weight_app/screens/compass/views/compass_screen.dart';
 import 'package:weight_app/screens/home/views/about_screen.dart';
+import 'package:weight_app/screens/users/views/users_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -66,6 +67,23 @@ class _HomeScreenState extends State<HomeScreen> {
                               MaterialPageRoute(
                                   builder: (context) => const CompassScreen()),
                             );
+                          }),
+                      ListTile(
+                          leading: const Icon(Icons.account_circle),
+                          title: Text(AppLocalizations.of(context)!.users,
+                              style: TextStyle(
+                                  color: state.authUser!.isAdmin
+                                      ? null
+                                      : Colors.grey)),
+                          onTap: () {
+                            if (state.authUser!.isAdmin) {
+                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const UsersScreen()),
+                              );
+                            }
                           }),
                       ListTile(
                           leading: const Icon(Icons.question_mark),
