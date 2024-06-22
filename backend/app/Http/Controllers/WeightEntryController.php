@@ -16,7 +16,7 @@ class WeightEntryController extends Controller
     
         $authUser = auth()->user();
 
-        $paginatedWeightEntries = $authUser->weightEntries()->paginate($validated['per_page'] ?? 15);
+        $paginatedWeightEntries = $authUser->weightEntries()->latest()->paginate($validated['per_page'] ?? 15);
 
         return response()->json($paginatedWeightEntries);
     }

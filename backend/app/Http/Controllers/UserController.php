@@ -22,7 +22,7 @@ class UserController extends Controller
         }
 
         // paginate to be safe and give better experience for frontends as data gets larger
-        $paginatedUsers = User::paginate($validated['per_page'] ?? 15);
+        $paginatedUsers = User::latest()->paginate($validated['per_page'] ?? 15);
 
         return response()->json($paginatedUsers);
     }
