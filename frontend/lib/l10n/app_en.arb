@@ -35,5 +35,6 @@
     "confirmDelete": "Confirm delete",
     "deleteConfirmation": "Delete confirmation",
     "cancel": "Cancel",
-    "delete": "Delete"
+    "delete": "Delete",
+    "references": "References"
 }

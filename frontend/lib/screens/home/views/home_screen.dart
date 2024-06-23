@@ -19,7 +19,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
   @override
   void initState() {
     super.initState();
@@ -41,9 +40,13 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Theme.of(context).colorScheme.primary,
               foregroundColor: Colors.white,
               actions: [
-                IconButton(onPressed: () {
-                  context.read<WeightEntriesBloc>().add(GetWeightEntries(1, append: false));
-                }, icon: const Icon(Icons.refresh))
+                IconButton(
+                    onPressed: () {
+                      context
+                          .read<WeightEntriesBloc>()
+                          .add(GetWeightEntries(1, append: false));
+                    },
+                    icon: const Icon(Icons.refresh))
               ],
             ),
             drawer: Drawer(
@@ -148,22 +151,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            body: SingleChildScrollView(
+            body: const SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Text(
-                      AppLocalizations.of(context)!.weightEntries,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  const WeightEntriesList(),
-                  const SizedBox(height: 75),
+                  WeightEntriesList(showChart: true),
+                  SizedBox(height: 75),
                 ],
               ),
             ),
