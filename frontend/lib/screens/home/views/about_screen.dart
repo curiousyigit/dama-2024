@@ -53,6 +53,7 @@ class AboutScreen extends StatelessWidget {
               const Text('- geolocator', style: TextStyle(fontSize: 16)),
               const Text('- fl_chart', style: TextStyle(fontSize: 16)),
               const Text('- url_launcher', style: TextStyle(fontSize: 16)),
+              const Text('- icons_launcher', style: TextStyle(fontSize: 16)),
               const SizedBox(height: 16),
               Text(AppLocalizations.of(context)!.references,
                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
@@ -65,6 +66,9 @@ class AboutScreen extends StatelessWidget {
               TextButton(onPressed: () {
                 _launchUrl(Uri.parse('https://www.youtube.com/watch?v=GFdKZj6mZys'));
               }, child: const Text('- Youtube: Master HTTP Requests with Flutter BLoC')),
+              TextButton(onPressed: () {
+                _launchUrl(Uri.parse('https://pixabay.com'));
+              }, child: const Text('- Pixabay Images')),
             ],
           ),
         ),

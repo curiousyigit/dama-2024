@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     return WeightAppService(
-        apiBaseUrl: 'http://3.71.87.226/api', deviceName: deviceName); // prod
+        apiBaseUrl: 'http://dama-2024.fedasoft.com/api', deviceName: deviceName); // prod
   }
 }
 
