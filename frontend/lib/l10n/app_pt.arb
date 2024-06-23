@@ -28,13 +28,14 @@
     "loadMore": "Ver mais",
     "createWeightEntry": "Adicionar Peso",
     "editWeightEntry": "Editar Peso",
-    "weightKg": "Weight (kg)",
-    "notes": "Notes",
-    "create": "Create",
-    "update": "Update",
-    "confirmDelete": "Confirm delete",
-    "deleteConfirmation": "Delete confirmation",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "references": "Referencias"
+    "weightKg": "Peso (kg)",
+    "notes": "Notas",
+    "create": "Criar",
+    "update": "Atualizar",
+    "confirmDelete": "Apagar Peso",
+    "deleteConfirmation": "Tem a certeza que quer apagar o peso?",
+    "cancel": "Cancelar",
+    "delete": "Apagar",
+    "references": "Referencias",
+    "welcomeNoWeightEntries": "Bem-vindo ao Weight App. Você não tem nenhuma entrada de peso. Por favor, comece clicando no botão +..."
 }

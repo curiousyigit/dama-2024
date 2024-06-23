@@ -32,9 +32,10 @@
     "notes": "Notes",
     "create": "Create",
     "update": "Update",
-    "confirmDelete": "Confirm delete",
-    "deleteConfirmation": "Delete confirmation",
+    "confirmDelete": "Delete Weight Entry",
+    "deleteConfirmation": "Are you sure you want to delete the weight entry?",
     "cancel": "Cancel",
     "delete": "Delete",
-    "references": "References"
+    "references": "References",
+    "welcomeNoWeightEntries": "Welcome to Weight App. You do not have any weight entries. Please start by clicking on the + button..."
 }

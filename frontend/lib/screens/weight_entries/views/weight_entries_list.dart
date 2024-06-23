@@ -32,18 +32,30 @@ class WeightEntriesList extends StatelessWidget {
                     height: 250,
                     child: LineChart(
                       LineChartData(
-                        minY: state.weightEntries.map((wE) => wE.kg).toList().reduce(math.min) - 10,
-                        maxY: state.weightEntries.map((wE) => wE.kg).toList().reduce(math.max) + 10,
+                        minY: state.weightEntries
+                                .map((wE) => wE.kg)
+                                .toList()
+                                .reduce(math.min) -
+                            10,
+                        maxY: state.weightEntries
+                                .map((wE) => wE.kg)
+                                .toList()
+                                .reduce(math.max) +
+                            10,
                         titlesData: const FlTitlesData(
-                          topTitles: AxisTitles(
-                              sideTitles: SideTitles(showTitles: false)),
-                          rightTitles: AxisTitles(
-                              sideTitles: SideTitles(showTitles: false)),
-                          bottomTitles: AxisTitles(sideTitles: SideTitles())
-                        ),
+                            topTitles: AxisTitles(
+                                sideTitles: SideTitles(showTitles: false)),
+                            rightTitles: AxisTitles(
+                                sideTitles: SideTitles(showTitles: false)),
+                            bottomTitles: AxisTitles(sideTitles: SideTitles())),
                         lineBarsData: [
                           LineChartBarData(
-                            spots: state.weightEntries.map((wE) => FlSpot(wE.createdAt.millisecondsSinceEpoch.toDouble(), wE.kg)).toList(),
+                            spots: state.weightEntries
+                                .map((wE) => FlSpot(
+                                    wE.createdAt.millisecondsSinceEpoch
+                                        .toDouble(),
+                                    wE.kg))
+                                .toList(),
                             dotData: const FlDotData(show: true),
                             color: Colors.blue,
                             barWidth: 5,
@@ -113,6 +125,13 @@ class WeightEntriesList extends StatelessWidget {
             state.errors != null) {
           return Center(
               child: Text(AppLocalizations.of(context)!.requestFailed));
+        } else if (state.weightEntries.isEmpty) {
+          return Padding(
+            padding: const EdgeInsets.all(12),
+            child: Center(
+                child:
+                    Text(AppLocalizations.of(context)!.welcomeNoWeightEntries)),
+          );
         }
 
         return const Center(child: CircularProgressIndicator());
