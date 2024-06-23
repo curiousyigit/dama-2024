@@ -140,6 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               leading: const Icon(Icons.logout),
                               title: Text(AppLocalizations.of(context)!.logout),
                               onTap: () {
+                                context.read<WeightEntriesBloc>().add(ClearData());
                                 context
                                     .read<AuthBloc>()
                                     .add(AuthLogoutRequested());

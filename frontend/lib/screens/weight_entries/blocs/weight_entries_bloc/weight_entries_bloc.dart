@@ -21,6 +21,7 @@ class WeightEntriesBloc extends Bloc<WeightEntriesEvent, WeightEntriesState> {
     on<UpdateWeightEntry>(_onUpdateWeightEntries);
     on<DeleteWeightEntry>(_onDeleteWeightEntries);
     on<ClearErrors>(_onClearErrors);
+    on<ClearData>(_onClearData);
   }
 
   Future<void> _onGetWeightEntries(event, emit) async {
@@ -142,5 +143,9 @@ class WeightEntriesBloc extends Bloc<WeightEntriesEvent, WeightEntriesState> {
 
   Future<void> _onClearErrors(event, emit) async {
     emit(state.copyWithoutErrors());
+  }
+
+  Future<void> _onClearData(event, emit) async {
+    emit(const WeightEntriesState());
   }
 }

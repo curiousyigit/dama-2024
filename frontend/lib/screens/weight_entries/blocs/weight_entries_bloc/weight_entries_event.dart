@@ -32,3 +32,5 @@ class DeleteWeightEntry extends WeightEntriesEvent {
 }
 
 class ClearErrors extends WeightEntriesEvent {}
+
+class ClearData extends WeightEntriesEvent {}
