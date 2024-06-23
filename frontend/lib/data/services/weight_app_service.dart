@@ -105,7 +105,7 @@ class WeightAppService {
 
   Future<WeightEntriesResponse> getWeightEntries(int page) async {
     Response response =
-        await apiRequest(method: HttpMethod.get, endpoint: '/weight-entries?page=$page&per_page=2');
+        await apiRequest(method: HttpMethod.get, endpoint: '/weight-entries?page=$page&per_page=5');
 
     return WeightEntriesResponse.fromJsonStr(response.body);
   }
