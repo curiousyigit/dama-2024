@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:weight_app/data/models/user.dart';
 
 class UsersResponse {
@@ -6,6 +8,10 @@ class UsersResponse {
   final int lastPage;
 
   UsersResponse({required this.users, required this.currentPage, required this.lastPage});
+
+  factory UsersResponse.fromJsonStr(String jsonStr) {
+    return UsersResponse.fromJson(jsonDecode(jsonStr));
+  }
 
   factory UsersResponse.fromJson(Map<String, dynamic> json) {
     var usersList = (json['data'] as List).map((item) => User.fromJson(item)).toList();

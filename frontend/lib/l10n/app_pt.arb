@@ -23,5 +23,17 @@
     "admin": "Admin",
     "user": "Utilizador",
     "next": "Próximo",
-    "previous": "Anterior"
+    "previous": "Anterior",
+    "weightEntries": "Pesos",
+    "loadMore": "Ver mais",
+    "createWeightEntry": "Adicionar Peso",
+    "editWeightEntry": "Editar Peso",
+    "weightKg": "Weight (kg)",
+    "notes": "Notes",
+    "create": "Create",
+    "update": "Update",
+    "confirmDelete": "Confirm delete",
+    "deleteConfirmation": "Delete confirmation",
+    "cancel": "Cancel",
+    "delete": "Delete"
 }

@@ -20,7 +20,6 @@ class MyAppView extends StatelessWidget {
           colorScheme: const ColorScheme.light(
             primary: Colors.blue,
             onPrimary: Colors.white,
-            surface: Colors.black,
           ),
         ),
         home: BlocBuilder<AuthBloc, AuthState>(

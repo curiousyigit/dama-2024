@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 
 import 'package:weight_app/data/models/auth_user.dart';
+import 'package:weight_app/data/models/weight_entry.dart';
 import 'package:weight_app/data/responses/users_response.dart';
+import 'package:weight_app/data/responses/weight_entries_response.dart';
 
 enum HttpMethod {
   get,
@@ -32,7 +35,7 @@ class WeightAppService {
   WeightAppService({required this.apiBaseUrl, required this.deviceName});
 
   Future<AuthUser> login(String email, String password) async {
-    var response = await apiRequest(
+    Response response = await apiRequest(
         method: HttpMethod.post,
         endpoint: '/auth/token',
         body: {
@@ -42,7 +45,7 @@ class WeightAppService {
         });
 
     token =
-        json.decode(const Utf8Decoder().convert(response.bodyBytes))['token'];
+        json.decode(response.body)['token'];
 
     authUser = await getAuthUser();
 
@@ -55,12 +58,11 @@ class WeightAppService {
   }
 
   Future<AuthUser?> getAuthUser() async {
-    var response =
+    Response response =
         await apiRequest(method: HttpMethod.get, endpoint: '/auth/user');
 
     if (response.statusCode == 200) {
-      return AuthUser.fromJson(
-          jsonDecode(const Utf8Decoder().convert(response.bodyBytes))['data']);
+      return AuthUser.fromJsonStr(response.body);
     }
 
     return null;
@@ -81,7 +83,7 @@ class WeightAppService {
   }
 
   Future<AuthUser> register(String name, String email, String password) async {
-    var response = await apiRequest(
+    Response response = await apiRequest(
         method: HttpMethod.post,
         endpoint: '/auth/register',
         body: {
@@ -91,15 +93,54 @@ class WeightAppService {
           'password_confirmation': password,
         });
 
-    return AuthUser.fromJson(
-        jsonDecode(const Utf8Decoder().convert(response.bodyBytes))['data']);
+    return AuthUser.fromJsonStr(response.body);
   }
 
   Future<UsersResponse> getUsers(int page) async {
-    var response =
+    Response response =
         await apiRequest(method: HttpMethod.get, endpoint: '/users?page=$page&per_page=10');
-    dynamic json = jsonDecode(const Utf8Decoder().convert(response.bodyBytes));
-    return UsersResponse.fromJson(json);
+        
+    return UsersResponse.fromJsonStr(response.body);
+  }
+
+  Future<WeightEntriesResponse> getWeightEntries(int page) async {
+    Response response =
+        await apiRequest(method: HttpMethod.get, endpoint: '/weight-entries?page=$page&per_page=2');
+
+    return WeightEntriesResponse.fromJsonStr(response.body);
+  }
+
+  Future<WeightEntry> createWeightEntry(double kg, String? notes) async {
+    Response response = await apiRequest(
+      method: HttpMethod.post,
+      endpoint: '/weight-entries',
+      body: {
+        'kg': kg.toString(),
+        'notes': notes,
+      },
+    );
+
+    return WeightEntry.fromJsonStr(response.body);
+  }
+
+  Future<WeightEntry> updateWeightEntry(String id, double kg, String? notes) async {
+    Response response = await apiRequest(
+      method: HttpMethod.patch,
+      endpoint: '/weight-entries/$id',
+      body: {
+        'kg': kg.toString(),
+        'notes': notes,
+      },
+    );
+
+    return WeightEntry.fromJsonStr(response.body);
+  }
+
+  Future<void> deleteWeightEntry(String id) async {
+    await apiRequest(
+      method: HttpMethod.delete,
+      endpoint: '/weight-entries/$id',
+    );
   }
 
   Future<http.Response> apiRequest(
@@ -133,7 +174,7 @@ class WeightAppService {
 
     log('---- API Response: ${response.statusCode} $method $uri', error: {
       "headers": response.headers,
-      "body": jsonDecode(const Utf8Decoder().convert(response.bodyBytes)),
+      "body": response.body.length > 2 ? jsonDecode(response.body) : null,
     });
 
     if (response.statusCode >= 200 && response.statusCode <= 299) {
@@ -144,7 +185,7 @@ class WeightAppService {
       }
 
       throw HTTPException(response.statusCode,
-          jsonDecode(const Utf8Decoder().convert(response.bodyBytes)));
+          jsonDecode(response.body));
     }
   }
 }

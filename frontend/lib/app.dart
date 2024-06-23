@@ -9,6 +9,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:weight_app/app_view.dart';
 import 'package:weight_app/blocs/auth_bloc/auth_bloc.dart';
 import 'package:weight_app/data/services/weight_app_service.dart';
+import 'package:weight_app/screens/weight_entries/blocs/weight_entries_bloc/weight_entries_bloc.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -33,12 +34,21 @@ class _MyAppState extends State<MyApp> {
       builder: (_, snapshot) {
         if (snapshot.connectionState == ConnectionState.done &&
             !snapshot.hasError) {
-          return RepositoryProvider<AuthBloc>(
-            create: (context) {
-              final authBloc = AuthBloc(weightAppService: snapshot.data!);
-              authBloc.add(AuthInitialized());
-              return authBloc;
-            },
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider<AuthBloc>(
+                create: (context) {
+                  final authBloc = AuthBloc(weightAppService: snapshot.data!);
+                  authBloc.add(AuthInitialized());
+                  return authBloc;
+                },
+              ),
+              BlocProvider<WeightEntriesBloc>(
+                create: (context) {
+                  return WeightEntriesBloc(weightAppService: snapshot.data!);
+                },
+              ),
+            ],
             child: const MyAppView(),
           );
         }

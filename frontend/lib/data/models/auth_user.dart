@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:weight_app/utils.dart';
 
 class AuthUser {
@@ -18,6 +20,10 @@ class AuthUser {
     required this.createdAt,
     required this.updatedAt,
   });
+
+  factory AuthUser.fromJsonStr(String jsonStr) {
+    return AuthUser.fromJson(jsonDecode(jsonStr)['data']);
+  }
 
   factory AuthUser.fromJson(Map<String, dynamic> json) => AuthUser(
         id: json['id'].toString(),

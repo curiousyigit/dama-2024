@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:weight_app/utils.dart';
 
 class User {
@@ -18,6 +20,10 @@ class User {
     required this.createdAt,
     required this.updatedAt,
   });
+
+  factory User.fromJsonStr(String jsonStr) {
+    return User.fromJson(jsonDecode(jsonStr)['data']);
+  }
 
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json['id'].toString(),

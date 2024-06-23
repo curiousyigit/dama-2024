@@ -23,5 +23,17 @@
     "admin": "Admin",
     "user": "User",
     "next": "Next",
-    "previous": "Previous"
+    "previous": "Previous",
+    "weightEntries": "Weight Entries",
+    "loadMore": "Load more",
+    "createWeightEntry": "Add Weight Entry",
+    "editWeightEntry": "Edit Weight Entry",
+    "weightKg": "Weight (kg)",
+    "notes": "Notes",
+    "create": "Create",
+    "update": "Update",
+    "confirmDelete": "Confirm delete",
+    "deleteConfirmation": "Delete confirmation",
+    "cancel": "Cancel",
+    "delete": "Delete"
 }
